@@ -4,12 +4,26 @@ from typing import List
 with open('README.md', 'r', encoding='utf-8') as f:
     long_description = f.read()     
    
+Hypen_e_edit = '-e .'
+def get_requirement(file_path:str)->List[str]:
+    requirements = []
+    with open(file_path) as f:
+        requirements = f.readlines()
+        requirements= [req.replace("\n","")for req in requirements]
 
+        if Hypen_e_edit in requirements:
+            requirements.remove(Hypen_e_edit)
+    
+    return requirements
+
+
+AUTHOR_NAME = "Mohammad Amirifard"
 __version__ = "0.0.4"
 REPO_NAME = "MongoDb_Package_connector"
-PKG_NAME= "databaseautomation"
+PKG_NAME= "MongoDb_Connector"
 AUTHOR_USER_NAME = "Mohammad-Amirifard"
 AUTHOR_EMAIL = "Mohammad.Amirifard@mail.polimi.it"
+
 
 setup(
     name=PKG_NAME,
@@ -25,6 +39,8 @@ setup(
     },
     package_dir={"": "src"},
     packages=find_packages(where="src"),
+    install_requires = get_requirement("./requirements_dev.txt")
+     
     )
 
 
