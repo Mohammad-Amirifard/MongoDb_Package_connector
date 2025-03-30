@@ -1,3 +1,4 @@
+# This file is responsible for requirements needed in the developing mode.
 pymongo
 pymongo[srv]
 dnspython
