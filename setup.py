@@ -3,9 +3,16 @@ from typing import List
 
 with open('README.md', 'r', encoding='utf-8') as f:
     long_description = f.read()     
-   
+
 Hypen_e_edit = '-e .'
 def get_requirement(file_path:str)->List[str]:
+    """
+    Args:
+        file_path: direction of requirement_dev.txt
+    Returns:
+        List: Return all package names available in the txt file as a list.
+    
+    """
     requirements = []
     with open(file_path) as f:
         requirements = f.readlines()
